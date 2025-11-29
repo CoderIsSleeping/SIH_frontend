@@ -13,73 +13,120 @@ export default function Header() {
     <header className="w-full shadow-md border-b">
 
       {/* ===== TOP STRIP ===== */}
-      <div
-        className="
-          w-full bg-gray-200
-          flex flex-wrap 
-          justify-between 
-          items-center 
-          px-3 py-1  
-          border-b 
-          text-xs
-          gap-y-1
-        "
-      >
-        {/* LEFT: Flag + Bharat Sarkar */}
-        <div className="flex items-center gap-1 whitespace-nowrap">
-          <Image src="/flag.webp" alt="Flag" width={22} height={14} />
-          <span className="font-medium text-[10px] sm:text-xs">
-            भारत सरकार | Government of India
-          </span>
-        </div>
+      {/* ================= DESKTOP STRIP ================= */}
+<div className="hidden sm:flex w-full bg-gray-200 border-b text-xs text-black">
+  <div className="flex items-center justify-between w-full px-4 py-1">
 
-        {/* RIGHT: Accessibility + Language */}
-        <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+    {/* LEFT: Flag + Bharat Sarkar */}
+    <div className="flex items-center gap-2 whitespace-nowrap">
+      <Image src="/flag.webp" alt="Flag" width={22} height={14} />
+      <span className="font-medium">
+        भारत सरकार | Government of India
+      </span>
+    </div>
 
-          {/* Skip (desktop only) */}
-          <button className="hidden sm:inline text-[10px] text-gray-700 hover:underline">
-            Skip to main content
-          </button>
+    {/* RIGHT: Skip + A+/A/A- + Language */}
+    <div className="flex items-center gap-3 whitespace-nowrap">
+      <button className="text-gray-700 hover:underline">
+        Skip to main content
+      </button>
 
-          {/* A+, A, A- */}
-          <div className="flex gap-1">
-            <button className="border px-1 py-[1px] text-[10px]">A+</button>
-            <button className="border px-1 py-[1px] text-[10px]">A</button>
-            <button className="border px-1 py-[1px] text-[10px]">A-</button>
-          </div>
-
-          {/* Language Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="px-2 py-1 bg-orange-600 text-white rounded text-[10px] sm:text-xs"
-            >
-              भाषा / Language
-            </button>
-
-            {langOpen && (
-              <div className="absolute right-0 mt-2 bg-white border shadow rounded text-xs w-40 z-20">
-                {[
-                  "English",
-                  "हिन्दी (Hindi)",
-                  "বাংলা (Bengali)",
-                  "ਪੰਜਾਬੀ (Punjabi)",
-                  "தமிழ் (Tamil)",
-                  "తెలుగు (Telugu)",
-                  "ગુજરાતી (Gujarati)",
-                ].map((lang, i) => (
-                  <button
-                    key={i}
-                    className="w-full text-left px-3 py-1 hover:bg-gray-100"
-                  >
-                    {lang}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
+      <div className="flex gap-1">
+        <button className="border px-2 py-[1px]">A+</button>
+        <button className="border px-2 py-[1px]">A</button>
+        <button className="border px-2 py-[1px]">A-</button>
       </div>
+
+      <div className="relative">
+        <button
+          onClick={() => setLangOpen(!langOpen)}
+          className="px-3 py-1 bg-orange-600 text-white rounded"
+        >
+          भाषा / Language
+        </button>
+
+        {langOpen && (
+          <div className="absolute right-0 mt-1 bg-white border shadow rounded text-xs w-40 z-20">
+            {[
+              "English",
+              "हिन्दी (Hindi)",
+              "বাংলা (Bengali)",
+              "ਪੰਜਾਬੀ (Punjabi)",
+              "தமிழ் (Tamil)",
+              "తెలుగు (Telugu)",
+              "ગુજરાતી (Gujarati)",
+            ].map((lang, i) => (
+              <button
+                key={i}
+                className="w-full text-left px-3 py-1 hover:bg-gray-100"
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* ================= MOBILE STRIP ================= */}
+<div className="flex sm:hidden w-full bg-gray-200 border-b text-[7px] text-black">
+  <div className="flex items-center justify-between w-full px-2 py-1 whitespace-nowrap overflow-x-auto">
+
+    {/* LEFT: Flag + Bharat Sarkar */}
+    <div className="flex items-center gap-1">
+      <Image src="/flag.webp" alt="Flag" width={18} height={12} />
+      <span className="font-medium">
+        भारत सरकार | Government of India
+      </span>
+    </div>
+
+    {/* RIGHT: A+/A/A- + Language + Skip */}
+    <div className="flex items-center gap-2 text-[5px]">
+      <div className="flex gap-1">
+        <button className="border px-1 py-[1px]">A+</button>
+        <button className="border px-1 py-[1px]">A</button>
+        <button className="border px-1 py-[1px]">A-</button>
+      </div>
+
+      <div className="relative">
+        <button
+          onClick={() => setLangOpen(!langOpen)}
+          className="px-2 py-1 bg-orange-600 text-white rounded text-[7px]"
+        >
+          भाषा/Language
+        </button>
+
+        {langOpen && (
+          <div className="absolute right-0 mt-1 bg-white border shadow rounded text-[7px] w-32 z-20">
+            {[
+              "English",
+              "हिन्दी (Hindi)",
+              "বাংলা (Bengali)",
+              "ਪੰਜਾਬੀ (Punjabi)",
+              "தமிழ் (Tamil)",
+              "తెలుగు (Telugu)",
+              "ગુજરાતી (Gujarati)",
+            ].map((lang, i) => (
+              <button
+                key={i}
+                className="w-full text-left px-2 py-1 hover:bg-gray-100"
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <button className="underline text-gray-600">
+        Skip
+      </button>
+    </div>
+  </div>
+</div>
+
 
       {/* ===== PM AJAY SECTION ===== */}
       <div
@@ -88,6 +135,7 @@ export default function Header() {
           flex flex-col sm:flex-row 
           items-center justify-between 
           gap-4
+          text-black
         "
       >
 
@@ -144,9 +192,9 @@ export default function Header() {
             <Image
               src="/PM-AJAY.png"
               alt="PM-AJAY Logo"
-              width={55}
-              height={55}
-              className="w-[55px] mb-1"
+              width={50}
+              height={50}
+              className="w-[31px] mb-1"
             />
 
             <h1 className="text-[12px] font-bold leading-snug">
@@ -162,9 +210,9 @@ export default function Header() {
             <Image
               src="/emplem.png"
               alt="Emblem"
-              width={35}
-              height={35}
-              className="w-[35px]"
+              width={25}
+              height={25}
+              className="w-[25px]"
             />
 
             <p className="font-semibold text-[10px] mt-1 whitespace-nowrap leading-snug">
@@ -193,7 +241,7 @@ export default function Header() {
       </nav>
 
       {/* ===== NAV BUTTON (MOBILE) ===== */}
-      <div className="sm:hidden flex justify-end px-4 py-2 bg-orange-600 text-white">
+      <div className="sm:hidden flex justify-end px-1 bg-orange-600 text-white">
         <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl">
           {menuOpen ? <HiX /> : <HiMenu />}
         </button>
@@ -223,7 +271,7 @@ export default function Header() {
       )}
 
       {/* ===== NEWS TICKER ===== */}
-      <div className="w-full bg-green-600 text-white px-4 py-2 text-xs flex items-center gap-2 overflow-hidden">
+      <div className="w-full bg-green-600 text-white px-4 py-1 text-xs flex items-center gap-2 overflow-hidden">
         <span className="bg-red-600 px-2 py-1 font-semibold text-[10px] whitespace-nowrap">
           LATEST NEWS
         </span>
