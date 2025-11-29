@@ -1,0 +1,2 @@
+Not-found.tsx Error in app page 
+---> showing not a react component 
