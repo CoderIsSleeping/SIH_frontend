@@ -7,7 +7,7 @@ export const metadata = {
   description: "PM-AJAY Beneficiary Cloud UI",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
